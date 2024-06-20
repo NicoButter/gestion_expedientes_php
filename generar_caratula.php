@@ -7,6 +7,9 @@ error_reporting(E_ALL);
 require('fpdf186/fpdf.php');
 require('db_connect.php');
 
+// Configurar la conexión a la base de datos para usar UTF-8
+$conn->set_charset("utf8");
+
 $id_expediente = isset($_GET['id_expediente']) ? intval($_GET['id_expediente']) : 0;
 
 if ($id_expediente === 0) {
@@ -30,36 +33,19 @@ if ($result->num_rows > 0) {
     {
         function Header()
         {
-
-            // $this->AddFont('ArialUnicodeMS', '', 'arialuni.php');
-            // $this->SetFont('ArialUnicodeMS', '', 12);
-
             $this->SetX(100);
-            
             $this->Image('images/escudo_Santa_Cruz.gif', 80, 10, 32); 
-        
-            
             $this->SetX(120); 
-        
             $this->SetFont('Arial', 'B', 16);
-            $this->Cell(0, 0, utf8_decode('Honorable Camara de Diputados de Santa Cruz'), 0, 1, 'C');
-        
-            
+            $this->Cell(0, 0, mb_convert_encoding('Honorable Cámara de Diputados de Santa Cruz', 'ISO-8859-1', 'UTF-8'), 0, 1, 'C');
             $this->SetX(30); 
-        
-            
             $this->SetFont('Arial', 'B', 12);
             $this->Cell(0, 10, 'Mesa de Entradas', 0, 1, 'C');
-        
-            
             $this->Ln(10);
         }
         
-
         function Body($expediente, $conn)
         {
-            // $this->AddFont('ArialUnicodeMS', '', 'arialuni.php');
-            // $this->SetFont('ArialUnicodeMS', '', 12);
             $this->SetFont('Arial', '', 12);
 
             $id_iniciador = $expediente['id_iniciador'];
@@ -78,32 +64,28 @@ if ($result->num_rows > 0) {
             $x = $this->GetX();
             $y = $this->GetY();
 
-            
             $ancho = $this->GetPageWidth() - $this->lMargin - $this->rMargin;
-
-            // Rectángulo alrededor del contenido del cuerpo
             $this->Rect($x, $y, $ancho, 80); 
 
-            // Contenido del cuerpo
             $this->SetFont('Arial', 'B', 12); 
-            $this->Cell(50, 10, 'Número de Expediente:', 0, 0, 'L');
+            $this->Cell(50, 10, mb_convert_encoding('Número de Expediente:','ISO-8859-1', 'UTF-8'), 0, 0, 'L');
             $this->SetFont('Arial', '', 12); 
-            $this->Cell(0, 10, $expediente['numero'], 0, 1, 'L');
+            $this->Cell(0, 10, mb_convert_encoding($expediente['numero'], 'ISO-8859-1', 'UTF-8'), 0, 1, 'L');
 
             $this->SetFont('Arial', 'B', 12);
-            $this->Cell(50, 10, 'Fecha de Creacion:', 0, 0, 'L');
+            $this->Cell(50, 10, mb_convert_encoding('Fecha de Creación:', 'ISO-8859-1', 'UTF-8'), 0, 0, 'L');
             $this->SetFont('Arial', '', 12);
-            $this->Cell(0, 10, $expediente['fecha_de_creacion'], 0, 1, 'L');
+            $this->Cell(0, 10, mb_convert_encoding($expediente['fecha_de_creacion'], 'ISO-8859-1', 'UTF-8'), 0, 1, 'L');
 
             $this->SetFont('Arial', 'B', 12);
             $this->Cell(50, 10, 'Iniciador:', 0, 0, 'L');
             $this->SetFont('Arial', '', 12);
-            $this->Cell(0, 10, $iniciador_nombre, 0, 1, 'L');
+            $this->Cell(0, 10, mb_convert_encoding($iniciador_nombre, 'ISO-8859-1', 'UTF-8'), 0, 1, 'L');
 
             $this->SetFont('Arial', 'B', 12);
             $this->Cell(50, 10, 'Extracto:', 0, 0, 'L');
             $this->SetFont('Arial', '', 12);
-            $this->MultiCell(0, 10, $expediente['extracto'], 0, 'L');
+            $this->MultiCell(0, 10, mb_convert_encoding($expediente['extracto'], 'ISO-8859-1', 'UTF-8'), 0, 'L');
         }
     }
 
@@ -118,4 +100,3 @@ if ($result->num_rows > 0) {
 }
 
 $conn->close();
-
