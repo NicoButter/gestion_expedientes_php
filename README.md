@@ -4,7 +4,7 @@ Este proyecto, desarrollado enteramente en PHP, es una herramienta externa dise�
 
 ## Descripción
 
-La herramienta permite realizar operaciones de gestión sobre los expedientes del sistema, ofreciendo una interfaz intuitiva para la administración y consulta de los mismos.
+La herramienta permite realizar operaciones de gestión sobre los expedientes del sistema, ofreciendo una interfaz intuitiva para la administración y consulta de los mismos. Además realiza la creación de las carátulas en PDF que se soliciten.
 
 ## Características
 
@@ -16,7 +16,7 @@ La herramienta permite realizar operaciones de gestión sobre los expedientes de
 
 - PHP 7.4 o superior
 - Servidor web (Apache, Nginx, etc.)
-- Acceso al sistema de expedientes realizado con ScriptCase
+- Acceso a la base de datos del sistema de expedientes realizado con ScriptCase
 
 ## Instalación
 
