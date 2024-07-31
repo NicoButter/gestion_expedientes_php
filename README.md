@@ -12,7 +12,7 @@ La herramienta permite realizar operaciones de gestión sobre los expedientes de
 - Integración con el sistema de expedientes realizado con ScriptCase.
 - Interfaz de usuario sencilla e intuitiva.
 
-## Si tienes alguna pregunta o sugerencia sobre este proyecto, no dudes en abrir un issue en el repositorio o contactarnos a través de nicobutter@gmail.com.
+# Si tienes alguna pregunta o sugerencia sobre este proyecto, no dudes en abrir un issue en el repositorio o contactarnos a través de nicobutter@gmail.com.
 
 
 ## Requisitos
