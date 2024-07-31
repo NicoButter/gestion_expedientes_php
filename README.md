@@ -43,5 +43,6 @@ define('DB_HOST', 'localhost');
 define('DB_NAME', 'nombre_base_datos');
 define('DB_USER', 'usuario_base_datos');
 define('DB_PASS', 'contraseña_base_datos');
+?>
 
-Si tienes alguna pregunta o sugerencia sobre este proyecto, no dudes en abrir un issue en el repositorio o contactarnos a través de nicobutter@gmail.com.
+## Si tienes alguna pregunta o sugerencia sobre este proyecto, no dudes en abrir un issue en el repositorio o contactarnos a través de nicobutter@gmail.com.
